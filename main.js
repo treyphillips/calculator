@@ -1,4 +1,5 @@
 var operation;
+var displayedNumber;
 
 function plusPressed(e){
   e.preventDefault();
@@ -36,7 +37,10 @@ function calculate() {
 
 
 function numberPressed(number){
-  var displayedNumber = Number(document.getElementById('screen').textContent);
+
+  var monkey = document.getElementById('screen').textContent;
+
+  displayedNumber = Number(document.getElementById('screen').textContent);
 
   if(operation == '+') {
     displayedNumber = displayedNumber + number;
@@ -54,7 +58,13 @@ function numberPressed(number){
     displayedNumber = number;
   }
 
-  document.getElementById('screen').textContent = displayedNumber;
+  if (monkey=='0'){
+    document.getElementById('screen').textContent = displayedNumber
+  } else {
+    document.getElementById('screen').textContent = document.getElementById('screen').textContent + displayedNumber;
+  }
+
+  // document.getElementById('screen').textContent = document.getElementById('screen').textContent + displayedNumber;
 }
 
 
@@ -71,7 +81,6 @@ function twoPressed(event) {
 function threePressed(event) {
   event.preventDefault();
   numberPressed(Number(3));
-  console.log('three');
 }
 
 function fourPressed(event) {
@@ -104,6 +113,12 @@ function ninePressed(event) {
   numberPressed(Number(9));
 }
 
+function zeroPressed(event) {
+  event.preventDefault();
+  numberPressed(Number(0));
+}
+
+
 
 
 document.getElementById('1').addEventListener('click', onePressed);
@@ -115,6 +130,7 @@ document.getElementById('6').addEventListener('click', sixPressed);
 document.getElementById('7').addEventListener('click', sevenPressed);
 document.getElementById('8').addEventListener('click', eightPressed);
 document.getElementById('9').addEventListener('click', ninePressed);
+document.getElementById('0').addEventListener('click', zeroPressed);
 document.getElementById('+').addEventListener('click', plusPressed);
 document.getElementById('-').addEventListener('click', minus);
 document.getElementById('*').addEventListener('click', timesThat);
