@@ -11,6 +11,7 @@ body{
 
 button {
   font-size: 30px;
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
   overflow: hidden;
   /* float: left; */
 
@@ -36,7 +37,7 @@ p {
 }
 
 .zero {
-margin-left: 76px;
+  margin-left: 76px;
 }
 
 #calcu {

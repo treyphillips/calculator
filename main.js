@@ -1,6 +1,7 @@
 var operation;
 var displayedNumber;
 
+
 function plusPressed(e){
   e.preventDefault();
   operation = '+';
@@ -30,8 +31,8 @@ function equals(e){
 
 function calculate() {
   event.preventDefault();
-  var value = document.getElementById('screen').value;
-  document.getElementById('screen').value = value + '';
+  var value = document.getElementById('screen').textContent;
+  document.getElementById('screen').textContent = value + '';
 }
 
 
@@ -58,12 +59,12 @@ function numberPressed(number){
     displayedNumber = number;
   }
 
-  if (monkey=='0'){
-    document.getElementById('screen').textContent = displayedNumber
-  } else {
-    document.getElementById('screen').textContent = document.getElementById('screen').textContent + displayedNumber;
-  }
-
+  // if (monkey=='0'){
+  //   document.getElementById('screen').textContent = displayedNumber;
+  // } else {
+  //   // document.getElementById('screen').textContent = document.getElementById('screen').textContent + displayedNumber;
+  // }
+  document.getElementById('screen').textContent =displayedNumber;
   // document.getElementById('screen').textContent = document.getElementById('screen').textContent + displayedNumber;
 }
 
@@ -118,9 +119,20 @@ function zeroPressed(event) {
   numberPressed(Number(0));
 }
 
+function del(event) {
+  event.preventDefault();
+  var str = document.getElementById('screen').textContent;
+  if(str.length == 1) {
+    document.getElementById('screen').textContent = '0';
+  }
+  else if(str.length > 1){
+    str = str.substring(0, str.length - 1);
+    document.getElementById('screen').textContent = str;
+  }
+}
 
 
-
+document.getElementById('del').addEventListener('click', del);
 document.getElementById('1').addEventListener('click', onePressed);
 document.getElementById('2').addEventListener('click', twoPressed);
 document.getElementById('3').addEventListener('click', threePressed);
