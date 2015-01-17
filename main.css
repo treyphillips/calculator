@@ -10,9 +10,8 @@ body{
 }
 
 button {
-  font-size: 30px;
-  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
-  overflow: hidden;
+  font-size: 14px;
+  font-family: 'Press Start 2P', cursive;  overflow: hidden;
   /* float: left; */
 
   width: 66px;
@@ -33,7 +32,9 @@ input{
 }
 p {
   margin: 10px;
-  font-size: 20px;
+  font-size: 16px;
+  font-family: 'Press Start 2P', cursive;  overflow: hidden;
+
 }
 
 .zero {

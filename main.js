@@ -1,71 +1,73 @@
-var operation;
-var displayedNumber;
+var operation = "";
+var displayedNumber = "";
+var monkey;
+var string;
 
 
-function plusPressed(e){
+function plusPressed(e) {
   e.preventDefault();
   operation = '+';
   console.log('yes')
 }
 
-function minus(e){
+function minus(e) {
   e.preventDefault();
   operation = '-';
 }
 
-function timesThat(e){
+function timesThat(e) {
   e.preventDefault();
   operation = '*';
 }
 
-function divided(e){
+function divided(e) {
   e.preventDefault();
   operation = '/';
 }
 
-function equals(e){
+function equals(e) {
   e.preventDefault();
   operation = '='
 }
 
+function sq(e) {
+  e.preventDefault();
+  operation = "displayedNumber * number(monkey)";
+}
 
 function calculate() {
   event.preventDefault();
-  var value = document.getElementById('screen').textContent;
-  document.getElementById('screen').textContent = value + '';
+  var value = document.getElementById('screen').value;
+  document.getElementById('screen').value = value + '';
 }
 
-
-
-function numberPressed(number){
+function numberPressed(number) {
 
   var monkey = document.getElementById('screen').textContent;
 
-  displayedNumber = Number(document.getElementById('screen').textContent);
+  if (operation == '+') {
+    displayedNumber = Number(monkey);
+    document.getElementById('screen').textContent = displayedNumber + number;
 
-  if(operation == '+') {
-    displayedNumber = displayedNumber + number;
+  } else if (operation == '-') {
+    displayedNumber = Number(monkey);
+    document.getElementById('screen').textContent = displayedNumber - number;
 
-  } else if(operation == '-') {
-    displayedNumber = displayedNumber - number;
+  } else if (operation == '*') {
+    displayedNumber = Number(monkey);
+    document.getElementById('screen').textContent = displayedNumber * number;
 
-  } else if(operation == '*') {
-    displayedNumber = displayedNumber * number;
-
-  } else if(operation == '/') {
-    displayedNumber = displayedNumber / number;
+  } else if (operation == '/') {
+    displayedNumber = Number(monkey);
+    document.getElementById('screen').textContent = displayedNumber / number;
 
   } else {
-    displayedNumber = number;
+    if (monkey == 0) {
+      document.getElementById('screen').textContent = number;
+    } else {
+      document.getElementById('screen').textContent = monkey + number;
+    }
   }
-
-  // if (monkey=='0'){
-  //   document.getElementById('screen').textContent = displayedNumber;
-  // } else {
-  //   // document.getElementById('screen').textContent = document.getElementById('screen').textContent + displayedNumber;
-  // }
-  document.getElementById('screen').textContent =displayedNumber;
-  // document.getElementById('screen').textContent = document.getElementById('screen').textContent + displayedNumber;
 }
 
 
@@ -119,20 +121,50 @@ function zeroPressed(event) {
   numberPressed(Number(0));
 }
 
-function del(event) {
+function sq(e) {
   event.preventDefault();
-  var str = document.getElementById('screen').textContent;
-  if(str.length == 1) {
-    document.getElementById('screen').textContent = '0';
+  var monkey = document.getElementById('screen').textContent;
+  if (monkey.length > 0) {
+    document.getElementById('screen').textContent = monkey * monkey;
   }
-  else if(str.length > 1){
-    str = str.substring(0, str.length - 1);
-    document.getElementById('screen').textContent = str;
+}
+
+function sqrt(e) {
+  event.preventDefault();
+  var monkey = document.getElementById('screen').textContent;
+  if (monkey.length > 0) {
+    document.getElementById('screen').textContent = Math.sqrt(monkey);
+  }
+}
+
+function ac(e) {
+  event.preventDefault();
+  var monkey = document.getElementById('screen').textContent;
+  if (monkey.length > 0) {
+    document.getElementById('screen').textContent = monkey = 0;
+    console.log("working");
+  }
+}
+
+// runs when you click the del button
+
+function clear(event) {
+  event.preventDefault();
+  var monkey = document.getElementById('screen').textContent;
+  if (monkey.length == 1) {
+    document.getElementById('screen').textContent = '0'
+  } else {
+    var string = monkey;
+    var newString = monkey.substring(0, monkey.length - 1);
+    document.getElementById('screen').textContent = newString;
   }
 }
 
 
-document.getElementById('del').addEventListener('click', del);
+
+// document.getElementById('sqrt').addEventListener('click', sqrt);
+document.getElementById('sq').addEventListener('click', sq);
+document.getElementById('del').addEventListener('click', clear);
 document.getElementById('1').addEventListener('click', onePressed);
 document.getElementById('2').addEventListener('click', twoPressed);
 document.getElementById('3').addEventListener('click', threePressed);
