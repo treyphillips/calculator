@@ -2,7 +2,14 @@ var operation = "";
 var displayedNumber = "";
 var monkey;
 var string;
+var bonobo;
 
+function bonobo(input, character) {
+  if(monkey == null || monkey == "0")
+    input.textContent = character
+    else
+      input.textContent += character
+    }
 
 function plusPressed(e) {
   e.preventDefault();
@@ -45,6 +52,7 @@ function numberPressed(number) {
 
   var monkey = document.getElementById('screen').textContent;
 
+
   if (operation == '+') {
     displayedNumber = Number(monkey);
     document.getElementById('screen').textContent = displayedNumber + number;
@@ -69,6 +77,7 @@ function numberPressed(number) {
     }
   }
 }
+
 
 
 function onePressed(event) {
@@ -137,14 +146,7 @@ function sqrt(e) {
   }
 }
 
-function ac(e) {
-  event.preventDefault();
-  var monkey = document.getElementById('screen').textContent;
-  if (monkey.length > 0) {
-    document.getElementById('screen').textContent = monkey = 0;
-    console.log("working");
-  }
-}
+
 
 // runs when you click the del button
 
@@ -160,9 +162,20 @@ function clear(event) {
   }
 }
 
+// function ac(event) {
+//   event.preventDefault();
+//   var monkey = document.getElementById('screen').textContent;
+//   if (monkey.length == 1) {
+//     document.getElementById('screen').textContent = '0'
+//   } else {
+//     var string = monkey;
+//     var newString = monkey.substring(0, monkey.length - monkey);
+//     document.getElementById('screen').textContent = newString;
+//   }
+// }
 
-
-// document.getElementById('sqrt').addEventListener('click', sqrt);
+// document.getElementById('ac').addEventListener('click', clear);
+document.getElementById('sqrt').addEventListener('click', sqrt);
 document.getElementById('sq').addEventListener('click', sq);
 document.getElementById('del').addEventListener('click', clear);
 document.getElementById('1').addEventListener('click', onePressed);
