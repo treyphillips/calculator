@@ -4,53 +4,18 @@ var monkey;
 var string;
 var bonobo;
 
-function bonobo(input, character) {
-  if(monkey == null || monkey == "0")
-    input.textContent = character
-    else
-      input.textContent += character
-    }
+// function bonobo(monkey, character) {
+//   event.preventDefault();
+//   if(monkey == null || monkey == "0")
+//     monkey.textContent = character
+//     else
+//       monkey.textContent += character
+//     }
 
-function plusPressed(e) {
-  e.preventDefault();
-  operation = '+';
-  console.log('yes')
-}
-
-function minus(e) {
-  e.preventDefault();
-  operation = '-';
-}
-
-function timesThat(e) {
-  e.preventDefault();
-  operation = '*';
-}
-
-function divided(e) {
-  e.preventDefault();
-  operation = '/';
-}
-
-function equals(e) {
-  e.preventDefault();
-  operation = '='
-}
-
-function sq(e) {
-  e.preventDefault();
-  operation = "displayedNumber * number(monkey)";
-}
-
-function calculate() {
-  event.preventDefault();
-  var value = document.getElementById('screen').value;
-  document.getElementById('screen').value = value + '';
-}
 
 function numberPressed(number) {
 
-  var monkey = document.getElementById('screen').textContent;
+  var monkey =  document.getElementById('screen').textContent;
 
 
   if (operation == '+') {
@@ -78,7 +43,41 @@ function numberPressed(number) {
   }
 }
 
+function plusPressed(e) {
+  e.preventDefault();
+  operation = '+';
+}
 
+function minus(e) {
+  e.preventDefault();
+  operation = '-';
+}
+
+function timesThat(e) {
+  e.preventDefault();
+  operation = '*';
+}
+
+function divided(e) {
+  e.preventDefault();
+  operation = '/';
+}
+
+function equals(e) {
+  e.preventDefault();
+  operation = '=';
+}
+
+function sq(e) {
+  e.preventDefault();
+  operation = "displayedNumber * number(monkey)";
+}
+
+function calculate() {
+  event.preventDefault();
+  var value = document.getElementById('screen').value;
+  document.getElementById('screen').value = value + '';
+}
 
 function onePressed(event) {
   event.preventDefault();
@@ -146,11 +145,38 @@ function sqrt(e) {
   }
 }
 
+function tan(e) {
+  e.preventDefault();
+  var monkey = document.getElementById('screen').textContent;
+  if (monkey.length > 0) {
+    document.getElementById('screen').textContent = Math.tan(monkey);
+  }
+}
 
+function sin(e) {
+  e.preventDefault();
+  var monkey = document.getElementById('screen').textContent;
+  if (monkey.length > 0) {
+    document.getElementById('screen').textContent = Math.sin(monkey);
+  }
+}
 
+function cos(e) {
+  e.preventDefault();
+  var monkey = document.getElementById('screen').textContent;
+  if (monkey.length > 0) {
+    document.getElementById('screen').textContent = Math.cos(monkey);
+  }
+}
+
+function ac(event) {
+  event.preventDefault();
+  displayedNumber = calculatedNumber = 0;
+  document.getElementById('result').textContent = calculatedNumber;
+}
 // runs when you click the del button
 
-function clear(event) {
+function del(event) {
   event.preventDefault();
   var monkey = document.getElementById('screen').textContent;
   if (monkey.length == 1) {
@@ -162,22 +188,14 @@ function clear(event) {
   }
 }
 
-// function ac(event) {
-//   event.preventDefault();
-//   var monkey = document.getElementById('screen').textContent;
-//   if (monkey.length == 1) {
-//     document.getElementById('screen').textContent = '0'
-//   } else {
-//     var string = monkey;
-//     var newString = monkey.substring(0, monkey.length - monkey);
-//     document.getElementById('screen').textContent = newString;
-//   }
-// }
 
-// document.getElementById('ac').addEventListener('click', clear);
+// document.getElementById('ac').addEventListener('click', ac);
+document.getElementById('cos').addEventListener('click', cos);
+document.getElementById('sin').addEventListener('click', sin);
+document.getElementById('tan').addEventListener('click', tan);
 document.getElementById('sqrt').addEventListener('click', sqrt);
 document.getElementById('sq').addEventListener('click', sq);
-document.getElementById('del').addEventListener('click', clear);
+document.getElementById('del').addEventListener('click', del);
 document.getElementById('1').addEventListener('click', onePressed);
 document.getElementById('2').addEventListener('click', twoPressed);
 document.getElementById('3').addEventListener('click', threePressed);
@@ -192,4 +210,4 @@ document.getElementById('+').addEventListener('click', plusPressed);
 document.getElementById('-').addEventListener('click', minus);
 document.getElementById('*').addEventListener('click', timesThat);
 document.getElementById('/').addEventListener('click', divided);
-document.getElementById('=').addEventListener('click', equals);
+document.getElementById('=').addEventListener('click', bonobo);

@@ -30,6 +30,7 @@ input{
   height: 30px;
   width: 375px;
 }
+
 p {
   margin: 10px;
   font-size: 16px;
@@ -41,8 +42,8 @@ p {
   margin-left: 76px;
 }
 
-#calcu {
-  width: 500px;
+#calc {
+  width: 1000px;
   height: auto;
 
   margin: 100px auto;
