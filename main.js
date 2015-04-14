@@ -14,7 +14,7 @@ function bonobo(input, character) {
 function plusPressed(e) {
   e.preventDefault();
   operation = '+';
-  console.log('yes')
+  console.log('yes');
 }
 
 function minus(e) {
@@ -154,7 +154,7 @@ function clear(event) {
   event.preventDefault();
   var monkey = document.getElementById('screen').textContent;
   if (monkey.length == 1) {
-    document.getElementById('screen').textContent = '0'
+    document.getElementById('screen').textContent = '0';
   } else {
     var string = monkey;
     var newString = monkey.substring(0, monkey.length - 1);

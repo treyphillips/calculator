@@ -7,6 +7,7 @@ body{
   width: 900px;
   height: 900px;
   margin: 0 auto;
+  background: #293f69;
 }
 
 button {
@@ -30,6 +31,7 @@ input{
   height: 30px;
   width: 375px;
 }
+
 p {
   margin: 10px;
   font-size: 16px;
@@ -41,10 +43,22 @@ p {
   margin-left: 76px;
 }
 
-#calc {
+.screen {
+  background: white;
+}
+
+.calc {
   width: 500px;
   height: auto;
 
-  margin: 100px auto;
+  margin: 0 auto;
   padding: 20px;
+  background: white;
+
+}
+
+form {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
